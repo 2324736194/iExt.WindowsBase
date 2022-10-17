@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Interop;
@@ -8,31 +9,33 @@ using System.Windows.Interop;
 namespace System.Windows.Forms
 {
     /// <summary>
-    /// <see cref="IWin32Window"/> 接口的实现
+    /// <see cref="IWin32Window"/> 接口的 WPF 实现
     /// </summary>
     public class Win32Window : IWin32Window
     {
+        private readonly WindowInteropHelper helper;
+
         /// <inheritdoc />
-        public IntPtr Handle { get; }
+        public IntPtr Handle => helper.Handle;
         
         /// <summary>
-        /// 
+        /// 构造基于 <see cref="DependencyObject"/> 的 <see cref="IWin32Window"/>
         /// </summary>
-        /// <param name="dependencyObject"></param>
-        /// <exception cref="Exception"></exception>
+        /// <param name="dependencyObject">元素</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InstanceNotFoundException"></exception>
         public Win32Window(DependencyObject dependencyObject)
         {
-            try
+            if (null == dependencyObject)
             {
-                var window = Window.GetWindow(dependencyObject);
-                // ReSharper disable once AssignNullToNotNullAttribute
-                var windowInteropHelper = new WindowInteropHelper(window);
-                Handle = windowInteropHelper.Handle;
+                throw new ArgumentNullException(nameof(dependencyObject));
             }
-            catch (Exception e)
+            var window = Window.GetWindow(dependencyObject);
+            if (null == window)
             {
-                throw new Exception("初始化 Win32Window 失败", e);
+                throw new InstanceNotFoundException();
             }
+            helper = new WindowInteropHelper(window);
         }
     }
 }
