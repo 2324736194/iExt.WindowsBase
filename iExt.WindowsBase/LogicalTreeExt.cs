@@ -20,12 +20,14 @@ namespace System.Windows
         /// <para>返回 true 时，立即停止遍历。</para>
         /// </param>
         /// <param name="downward">遍历方向，默认向下遍历</param>
-        public static void ForeachLogicalTree<T>(this DependencyObject source, Func<T, bool> handler, bool downward = true)
+        public static void ForeachLogicalTree<T>(this DependencyObject source, Func<T, ForeachFlag> handler,
+            bool downward = true)
         {
             if (null == source)
             {
                 throw new ArgumentNullException(nameof(source));
             }
+
             if (null == handler)
             {
                 throw new ArgumentNullException(nameof(handler));
@@ -41,6 +43,11 @@ namespace System.Windows
                 searchHandler = SearchParentHandler;
             }
 
+            Foreach(source, handler, searchHandler);
+        }
+
+       internal static void Foreach<T>(DependencyObject source, Func<T, ForeachFlag> handler, Action<List<object>, DependencyObject> dependencyObjectHandler)
+        {
             var list = new List<object>();
             list.Add(source);
             while (true)
@@ -49,12 +56,24 @@ namespace System.Windows
                 {
                     break;
                 }
-
                 var item = list.First();
-                if (item is T result)
+                if (item is T obj)
                 {
-                    var stop = handler.Invoke(result);
-                    if (stop)
+                    var breakFlag = false;
+                    switch (handler.Invoke(obj))
+                    {
+                        case ForeachFlag.Normal:
+                            break;
+                        case ForeachFlag.Break:
+                            breakFlag = true;
+                            break; ;
+                        case ForeachFlag.Continue:
+                            continue;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    if (breakFlag)
                     {
                         break;
                     }
@@ -62,13 +81,13 @@ namespace System.Windows
 
                 if (item is DependencyObject o)
                 {
-                    searchHandler(list, o);
+                    dependencyObjectHandler(list, o);
                 }
 
                 list.Remove(item);
             }
         }
-                    
+        
         static void SearchParentHandler(List<object> list, DependencyObject o)
         {
             var parent = LogicalTreeHelper.GetParent(o);

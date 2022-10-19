@@ -29,7 +29,7 @@ namespace iExt.WindowsBase.Tests.ViewModels
             o.ForeachLogicalTree<DependencyObject>(p =>
             {
                 Debug.WriteLine(p);
-                return false;
+                return ForeachFlag.Normal;
             }, false);
         }
 
@@ -38,7 +38,7 @@ namespace iExt.WindowsBase.Tests.ViewModels
             o.ForeachLogicalTree<DependencyObject>(p =>
             {
                 Debug.WriteLine(p);
-                return false;
+                return ForeachFlag.Normal;
             });
         }
     }
