@@ -26,7 +26,7 @@ namespace iExt.WindowsBase.Tests.ViewModels
 
         private void LoadedParentCommandExecuteMethod(DependencyObject o)
         {
-            o.Foreach<DependencyObject>(p =>
+            o.ForeachLogicalTree<DependencyObject>(p =>
             {
                 Debug.WriteLine(p);
                 return false;
@@ -35,7 +35,7 @@ namespace iExt.WindowsBase.Tests.ViewModels
 
         private void LoadedCommandExecuteMethod(DependencyObject o)
         {
-            o.Foreach<DependencyObject>(p =>
+            o.ForeachLogicalTree<DependencyObject>(p =>
             {
                 Debug.WriteLine(p);
                 return false;

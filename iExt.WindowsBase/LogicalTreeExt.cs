@@ -11,7 +11,7 @@ namespace System.Windows
     public static class LogicalTreeExt
     {
         /// <summary>
-        /// 遍历逻辑树元素
+        /// 遍历逻辑树
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">逻辑起点</param>
@@ -20,7 +20,7 @@ namespace System.Windows
         /// <para>返回 true 时，立即停止遍历。</para>
         /// </param>
         /// <param name="downward">遍历方向，默认向下遍历</param>
-        public static void Foreach<T>(this DependencyObject source, Func<T, bool> handler, bool downward = true)
+        public static void ForeachLogicalTree<T>(this DependencyObject source, Func<T, bool> handler, bool downward = true)
         {
             if (null == source)
             {
@@ -68,7 +68,7 @@ namespace System.Windows
                 list.Remove(item);
             }
         }
-        
+                    
         static void SearchParentHandler(List<object> list, DependencyObject o)
         {
             var parent = LogicalTreeHelper.GetParent(o);
