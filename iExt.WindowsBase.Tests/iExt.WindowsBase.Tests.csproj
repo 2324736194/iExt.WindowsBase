@@ -5,10 +5,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <None Remove="Resources\folder.png" />
+    <None Remove="Resources\xaml.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Basics\" />
+    <Content Include="Resources\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\xaml.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="iExt.Prism" Version="2022.1020.1345-preview" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iExt.WindowsBase\iExt.WindowsBase.csproj" />
