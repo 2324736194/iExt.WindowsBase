@@ -21,7 +21,9 @@
        </Grid>
         <DockPanel>
            <Label Content="{Lang Key={x:Static tests:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
-           <Label Content="{Lang Key={x:Static tests:LegendAnas.Ezreal}}"/>
+            <Label >
+                <TextBlock Text="{Lang Key={x:Static tests:LegendAnas.Ezreal}}"></TextBlock>
+            </Label>
         </DockPanel>
         <DockPanel>
             <Label Content="{Lang Key={x:Static tests:Legends.Jhin}}" Style="{StaticResource LegendLabel}"/>
