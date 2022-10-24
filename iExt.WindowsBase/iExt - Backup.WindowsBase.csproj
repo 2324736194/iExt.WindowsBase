@@ -12,8 +12,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="iExt.Core" Version="2022.1022.1707-preview" />
 	  <PackageReference Include="iExt.ObjectModel" Version="2022.1022.1736-preview" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Markup\" />
 	</ItemGroup>
 
 </Project>
