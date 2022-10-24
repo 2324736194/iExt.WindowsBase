@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iExt.WindowsBase", "iExt.WindowsBase\iExt.WindowsBase.csproj", "{5ABAA5FC-E70A-4722-ACAF-0617E8D6840C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iExt.WindowsBase.Tests", "iExt.WindowsBase.Tests\iExt.WindowsBase.Tests.csproj", "{FFA01561-37A0-4FF4-B8F2-3AFC4F605571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iExt.WindowsBase.Tests", "iExt.WindowsBase.Tests\iExt.WindowsBase.Tests.csproj", "{FFA01561-37A0-4FF4-B8F2-3AFC4F605571}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iExt.WindowsBase.Tests.Langs", "iExt.WindowsBase.Tests.Langs\iExt.WindowsBase.Tests.Langs.csproj", "{E540A6C5-ACB3-4AAC-A971-DFC9B44FD0AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FFA01561-37A0-4FF4-B8F2-3AFC4F605571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFA01561-37A0-4FF4-B8F2-3AFC4F605571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFA01561-37A0-4FF4-B8F2-3AFC4F605571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E540A6C5-ACB3-4AAC-A971-DFC9B44FD0AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E540A6C5-ACB3-4AAC-A971-DFC9B44FD0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E540A6C5-ACB3-4AAC-A971-DFC9B44FD0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E540A6C5-ACB3-4AAC-A971-DFC9B44FD0AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

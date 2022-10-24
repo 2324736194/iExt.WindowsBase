@@ -1,0 +1,63 @@
+﻿<UserControl 
+    x:Class="iExt.WindowsBase.Tests.Views.Markup.LangExtensionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tests="https://github.com/2324736194/iExt.Windows.Tests"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="LegendLabel" TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="100"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+       <Grid>
+           <TextBlock Text="英雄联盟语录" FontSize="16" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,5"></TextBlock>
+           <Button 
+               Content="切换语言" HorizontalAlignment="Right" Margin="10,0" Padding="5"
+               Click="LangChanged_OnClick"></Button>
+       </Grid>
+        <DockPanel>
+           <Label Content="{Lang Key={x:Static tests:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
+           <Label Content="{Lang Key={x:Static tests:LegendAnas.Ezreal}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Jhin}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Jhin}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Kassadin}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Kassadin}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Malphit}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Malphit}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Pyke}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Pyke}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Set}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Set}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Thres}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Thres}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Wukong}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Wukong}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Yasuo}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Yasuo}}"/>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="{Lang Key={x:Static tests:Legends.Zed}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Zed}}"/>
+        </DockPanel>
+    </StackPanel>
+</UserControl>

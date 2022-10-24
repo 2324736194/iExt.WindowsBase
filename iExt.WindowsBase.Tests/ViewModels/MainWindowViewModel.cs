@@ -15,7 +15,7 @@ namespace iExt.WindowsBase.Tests.ViewModels
     {
         private readonly IRegionManager regionManager;
         private string title = "Prism Application";
-        private readonly string separator = ".";
+        private readonly char separator = '.';
         private readonly IReadOnlyList<Type> types;
         private readonly IReadOnlyList<string> namespaces;
 
