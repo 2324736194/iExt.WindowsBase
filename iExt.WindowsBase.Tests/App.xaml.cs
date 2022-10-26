@@ -1,7 +1,9 @@
 ﻿using iExt.WindowsBase.Tests.Views;
 using Prism.Ioc;
 using System.Windows;
+using iExt.Windows.Tests.Basics;
 using iExt.WindowsBase.Tests.ViewModels;
+using Prism.Modularity;
 
 namespace iExt.WindowsBase.Tests
 {
@@ -17,27 +19,13 @@ namespace iExt.WindowsBase.Tests
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            Register(containerRegistry,this);
+            containerRegistry.Register(this);
         }
 
-        void Register(IContainerRegistry containerRegistry, Application application)
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            var applicationType = application.GetType();
-            var applicationNamespace = applicationType.Namespace;
-            var viewsNamespace = $"{applicationNamespace}.Views";
-            var types = applicationType.Assembly.GetTypes();
-            foreach (var type in types)
-            {
-                // ReSharper disable once PossibleNullReferenceException
-                if (!type.Namespace.StartsWith(viewsNamespace))
-                    continue;
-                if (type.Name.EndsWith("Dialog") || type.Name.EndsWith("View"))
-                {
-                    containerRegistry.RegisterForNavigation(type, type.Name);
-                }
-            }
+            moduleCatalog.AddModule<BasicsModule>();
+            base.ConfigureModuleCatalog(moduleCatalog);
         }
     }
-
-   
 }

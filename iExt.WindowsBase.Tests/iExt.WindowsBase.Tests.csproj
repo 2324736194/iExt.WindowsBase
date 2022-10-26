@@ -5,19 +5,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Resources\folder.png" />
-    <None Remove="Resources\xaml.png" />
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+    <Page Remove="Resources\**" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\folder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\xaml.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Remove="C:\Users\H\.nuget\packages\iext.windows.tests.basics\2022.1025.1427-preview\contentFiles\any\net6.0-windows7.0\Resources\folder.png" />
+    <Content Remove="C:\Users\H\.nuget\packages\iext.windows.tests.basics\2022.1025.1427-preview\contentFiles\any\net6.0-windows7.0\Resources\xaml.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="iExt.Prism" Version="2022.1020.1345-preview" />
+    <PackageReference Include="iExt.Prism" Version="2022.1022.1726-preview" />
+    <PackageReference Include="iExt.Windows.Tests.Basics" Version="2022.1025.1427-preview" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
