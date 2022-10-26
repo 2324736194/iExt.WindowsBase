@@ -1,15 +1,20 @@
-﻿namespace System.Windows.Markup
+﻿using System.ComponentModel;
+
+namespace System.Windows.Markup
 {
     /// <summary>
     /// 静态语言包文本标记扩展
     /// </summary>
+    [TypeConverter(typeof(LangExtension))]
+    [MarkupExtensionReturnType(typeof(string))]
     public class LangExtension : LangMarkupExtension
     {
         /// <summary>
         /// 语言包中的文本对应的关键字
         /// </summary>
+        
         public StaticExtension Key { get; set; }
-
+        
         /// <inheritdoc />
         public override object ProvideValue(IServiceProvider serviceProvider)
         {

@@ -40,7 +40,7 @@ namespace System.Windows.Markup
                 return GetType().Name;
             }
 
-            return this;
+            return GetType().FullName;
         }
 
         /// <summary>

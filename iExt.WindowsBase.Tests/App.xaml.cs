@@ -2,7 +2,7 @@
 using Prism.Ioc;
 using System.Windows;
 using iExt.Windows.Tests.Basics;
-using iExt.WindowsBase.Tests.langs;
+using iExt.WindowsBase.Tests.Langs;
 using Prism.Modularity;
 using System.Windows.Markup;
 
@@ -17,7 +17,7 @@ namespace iExt.WindowsBase.Tests
         {
             LangMarkupExtension.DefaultProvider = new LangProvider()
             {
-                LangType = typeof(Lang)
+                LangAssembly = typeof(Lang).Assembly
             };
             base.OnStartup(e);
         }

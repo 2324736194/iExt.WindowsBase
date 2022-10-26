@@ -22,7 +22,7 @@ namespace iExt.WindowsBase.Tests.Langs {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Lang {
+    public class Lang {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("iExt.WindowsBase.Tests.Langs.Lang", typeof(Lang).Assembly);
@@ -51,7 +51,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 有些人说我是英雄，这是他们说的，不是我，不过这话说得挺到位的。 的本地化字符串。
         /// </summary>
-        internal static string Ezreal {
+        public static string Ezreal {
             get {
                 return ResourceManager.GetString("Ezreal", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 我于杀戮之中绽放，一如黎明中的花朵。 的本地化字符串。
         /// </summary>
-        internal static string Jhin {
+        public static string Jhin {
             get {
                 return ResourceManager.GetString("Jhin", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 有一次我试着沉默我妈，天哪！再也没有比这更糟糕的事了。 的本地化字符串。
         /// </summary>
-        internal static string Kassadin {
+        public static string Kassadin {
             get {
                 return ResourceManager.GetString("Kassadin", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 俺也是从石头里蹦出来的，为啥不是猴子呢？ 的本地化字符串。
         /// </summary>
-        internal static string Malphit {
+        public static string Malphit {
             get {
                 return ResourceManager.GetString("Malphit", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 基本上，哪里都可能淹死人。 的本地化字符串。
         /// </summary>
-        internal static string Pyke {
+        public static string Pyke {
             get {
                 return ResourceManager.GetString("Pyke", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 一位大师曾经说过：“要像水一样。”那我应该是是海啸吧。 的本地化字符串。
         /// </summary>
-        internal static string Set {
+        public static string Set {
             get {
                 return ResourceManager.GetString("Set", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 尖叫对你来说没有任何益处，但在我耳中却是美妙的音乐。 的本地化字符串。
         /// </summary>
-        internal static string Thres {
+        public static string Thres {
             get {
                 return ResourceManager.GetString("Thres", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 俺老孙一个跟头能翻十万八千里。 的本地化字符串。
         /// </summary>
-        internal static string Wukong {
+        public static string Wukong {
             get {
                 return ResourceManager.GetString("Wukong", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 人们一直在往我的剑上撞。 的本地化字符串。
         /// </summary>
-        internal static string Yasuo {
+        public static string Yasuo {
             get {
                 return ResourceManager.GetString("Yasuo", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace iExt.WindowsBase.Tests.Langs {
         /// <summary>
         ///   查找类似 直面暗影，找寻真理。 的本地化字符串。
         /// </summary>
-        internal static string Zed {
+        public static string Zed {
             get {
                 return ResourceManager.GetString("Zed", resourceCulture);
             }
