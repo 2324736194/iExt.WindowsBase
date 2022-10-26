@@ -7,44 +7,28 @@ namespace System.Windows.Markup
     /// </summary>
     public abstract class LangMarkupExtension : MarkupExtension
     {
-        private static LangProvider defaultProvider;
-        private LangProvider provider;
-
         /// <summary>
         /// 默认语言代理
         /// </summary>
-        public static LangProvider DefaultProvider
-        {
-            get
-            {
-                if (null == defaultProvider)
-                {
-                    defaultProvider = new LangProvider()
-                    {
-                        LangAssembly = Application.Current.GetType().Assembly
-                    };
-                }
-
-                return defaultProvider;
-            }
-            set { defaultProvider = value; }
-        }
+        public static LangProvider DefaultProvider { get; set; }
 
         /// <summary>
         /// 指定的语言代理，此属性的优先级大于 <see cref="DefaultProvider"/>
         /// </summary>
-        public LangProvider Provider
-        {
-            get
-            {
-                if (null == provider)
-                {
-                    return DefaultProvider;
-                }
+        public LangProvider Provider { get; set; }
 
-                return provider;
-            }
-            set => provider = value;
+        static LangMarkupExtension()
+        {
+            DefaultProvider =   new LangProvider()
+            {
+                LangAssembly = Application.Current.GetType().Assembly
+            };
+        }
+
+        /// <inheritdoc />
+        protected LangMarkupExtension()
+        {
+            Provider = DefaultProvider;
         }
 
         /// <inheritdoc />

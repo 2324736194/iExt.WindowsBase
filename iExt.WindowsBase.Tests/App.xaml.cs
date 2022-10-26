@@ -2,8 +2,9 @@
 using Prism.Ioc;
 using System.Windows;
 using iExt.Windows.Tests.Basics;
-using iExt.WindowsBase.Tests.ViewModels;
+using iExt.WindowsBase.Tests.langs;
 using Prism.Modularity;
+using System.Windows.Markup;
 
 namespace iExt.WindowsBase.Tests
 {
@@ -12,6 +13,15 @@ namespace iExt.WindowsBase.Tests
     /// </summary>
     public partial class App
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            LangMarkupExtension.DefaultProvider = new LangProvider()
+            {
+                LangType = typeof(Lang)
+            };
+            base.OnStartup(e);
+        }
+
         protected override Window CreateShell()
         {
             return Container.Resolve<MainWindow>();
