@@ -1,4 +1,5 @@
-﻿using iExt.WindowsBase.Tests.Views;
+﻿using System.Globalization;
+using iExt.WindowsBase.Tests.Views;
 using Prism.Ioc;
 using System.Windows;
 using iExt.Windows.Tests.Basics;
@@ -15,10 +16,7 @@ namespace iExt.WindowsBase.Tests
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            LangMarkupExtension.DefaultProvider = new LangProvider()
-            {
-                LangAssembly = typeof(Lang).Assembly
-            };
+            //CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en");
             base.OnStartup(e);
         }
 

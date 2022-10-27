@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -11,40 +12,23 @@ namespace System.Windows.Markup
     /// </summary>
     public class LangProvider : IRaisePropertyChanged
     {
-        private ResourceManager lang;
-        private CultureInfo culture;
-        private Assembly langAssembly;
+        private static readonly Dictionary<Type, LangProvider> providers;
+        private PropertyChangedEventHandler propertyChanged;
+        private readonly ResourceManager manager;
 
         /// <summary>
-        /// 语言包所在的程序集
+        /// 设置时区
         /// </summary>
-        public Assembly LangAssembly
-        {
-            get => langAssembly;
+        public static CultureInfo Culture 
+        { 
+            get=>CultureInfo.CurrentCulture;
             set
             {
-                var changed = this.SetValue(ref langAssembly, value);
-                if (changed)
+                CultureInfo.CurrentCulture = value;
+                foreach (var provider in providers)
                 {
-                    lang = GetLang(langAssembly);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 语言
-        /// </summary>
-        public CultureInfo Culture
-        {
-            get => culture;
-            set
-            {
-                var changed = this.SetValue(ref culture, value);
-                if (changed)
-                {
-                    var args = new PropertyChangedEventArgs(ComponentModelExt.NPN_This);
-                    var raise = (IRaisePropertyChanged)this;
-                    raise.RaisePropertyChanged(args);
+                    // ReSharper disable once ExplicitCallerInfoArgument
+                    provider.Value.RaisePropertyChanged(ComponentModelExt.NPN_This);
                 }
             }
         }
@@ -53,57 +37,54 @@ namespace System.Windows.Markup
         /// 获取语言包中对应名称的文本
         /// </summary>
         /// <param name="key"></param>
-        public string this[string key]
-        {
-            get
-            {
-                if (null == lang)
-                {
-                    return default;
-                }
+        public string this[string key] => manager.GetString(key, Culture);
 
-                var name = key.Replace('_', '.');
-                var value = null == culture ? lang.GetString(name) : lang.GetString(name, culture);
-                if (string.IsNullOrEmpty(value))
-                {
-                    value = name;
-                }
-                return value;
-            }
+        static LangProvider()
+        {
+            providers = new Dictionary<Type, LangProvider>();
         }
 
-        private ResourceManager GetLang(Assembly assembly)
+        private LangProvider(Type lang)
         {
-            var names = assembly.GetManifestResourceNames();
-            var lang = default(ResourceManager);
-            foreach (var name in names)
-            {
-                if (!name.ToLower().EndsWith(".resources"))
-                    continue;
-
-                var resource = IO.Path.GetFileNameWithoutExtension(name);
-                var resourceName = resource.Split('.').Last();
-                if (resourceName.ToLower() == "lang")
-                {
-                    if (null == lang)
-                    {
-                        lang = new ResourceManager(resource, assembly);
-                        continue;
-                    }
-
-                    throw new NotImplementedException("一个程序集中只允许添加一个语言包");
-                }
-            }
-
-            return lang;
+            manager = GetManager(lang);
         }
 
-        /// <inheritdoc />
-        public event PropertyChangedEventHandler PropertyChanged;
+        private ResourceManager GetManager(Type lang)
+        {
+            var property = lang.GetProperty("ResourceManager", BindingFlags.Static | BindingFlags.Public);
+            if (null == property)   
+            {
+                throw new ArgumentOutOfRangeException(nameof(lang));
+            }
+
+            var propertyValue = property.GetValue(null);
+            if (!(propertyValue is ResourceManager resourceManager))
+            {
+                throw new ArgumentOutOfRangeException(nameof(lang));
+            }
+            return resourceManager;
+        }
+        
+        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
+        {
+            add { propertyChanged += value; }
+            remove { propertyChanged -= value; }
+        }
 
         void IRaisePropertyChanged.RaisePropertyChanged(PropertyChangedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, e);
+            propertyChanged?.Invoke(this, e);
+        }
+
+        public static LangProvider Register(Type lang)
+        {
+            if (!providers.TryGetValue(lang, out var provider))
+            {
+                provider = new LangProvider(lang);
+                providers.Add(lang, provider);
+            }
+
+            return provider;
         }
     }
 }

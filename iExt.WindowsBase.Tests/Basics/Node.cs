@@ -9,6 +9,6 @@ namespace iExt.WindowsBase.Tests;
 
 public class Node
 {
-    public object Data { get; init; }
-    public IReadOnlyList<Node> Children { get; init; }
+    public object Data { get; set; }
+    public IReadOnlyList<Node> Children { get; set; }
 }

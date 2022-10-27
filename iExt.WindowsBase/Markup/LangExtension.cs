@@ -1,18 +1,24 @@
-﻿using System.ComponentModel;
+﻿using System.CodeDom;
+using System.Collections;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
+using System.Globalization;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Windows.Data;
 
 namespace System.Windows.Markup
 {
     /// <summary>
-    /// 静态语言包文本标记扩展
+    /// 静态语言标记扩展
     /// </summary>
-    [TypeConverter(typeof(LangExtension))]
-    [MarkupExtensionReturnType(typeof(string))]
-    public class LangExtension : LangMarkupExtension
+    public class LangExtension : MarkupExtension
     {
+        private LangProvider provider;
+
         /// <summary>
-        /// 语言包中的文本对应的关键字
+        /// 表示指向语言包文本的 <see cref="StaticExtension"/>
         /// </summary>
-        
         public StaticExtension Key { get; set; }
         
         /// <inheritdoc />
@@ -20,10 +26,17 @@ namespace System.Windows.Markup
         {
             if (null != Key)
             {
-                var binding = CreateBinding(Key.Member);
+                if (null == provider)
+                {
+                    provider = LangProvider.Register(Key.MemberType);
+                }
+                var binding = new Binding();
+                binding.Source = provider;
+                binding.Path = new PropertyPath($"[{Key.Member}]");
                 return binding.ProvideValue(serviceProvider);
             }
-            return base.ProvideValue(serviceProvider);
+
+            return Key?.ProvideValue(serviceProvider);
         }
     }
 }
