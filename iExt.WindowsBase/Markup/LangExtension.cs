@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace System.Windows.Markup
 {

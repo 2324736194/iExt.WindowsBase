@@ -13,17 +13,15 @@
         </Style>
     </UserControl.Resources>
     <StackPanel>
-       <Grid>
-           <TextBlock Text="英雄联盟语录" FontSize="16" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,5"></TextBlock>
-           <Button 
-               Content="切换语言" HorizontalAlignment="Right" Margin="10,0" Padding="5"
-               Click="LangChanged_OnClick"></Button>
-       </Grid>
+        <Grid>
+            <TextBlock Text="英雄联盟语录" FontSize="16" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,5"></TextBlock>
+            <Button 
+               Content="切换语言" HorizontalAlignment="Left" Padding="5"
+               Click="LangChanged_OnClick"/>
+        </Grid>
         <DockPanel>
-           <Label Content="{Lang Key={x:Static tests:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
-            <Label >
-                <TextBlock Text="{Lang Key={x:Static tests:LegendAnas.Ezreal}}"></TextBlock>
-            </Label>
+            <Label Content="{Lang Key={x:Static tests:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{Lang Key={x:Static tests:LegendAnas.Ezreal}}"/>
         </DockPanel>
         <DockPanel>
             <Label Content="{Lang Key={x:Static tests:Legends.Jhin}}" Style="{StaticResource LegendLabel}"/>

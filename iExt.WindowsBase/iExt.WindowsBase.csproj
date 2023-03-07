@@ -12,7 +12,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Markup\LangBindingExtension.cs" />
 	  <Compile Remove="Markup\LangMarkupExtension.cs" />
 	</ItemGroup>
 
