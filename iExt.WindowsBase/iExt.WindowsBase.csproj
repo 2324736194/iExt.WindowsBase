@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net462</TargetFramework>
+		<TargetFramework>net461</TargetFramework>
 		<UseWPF>true</UseWPF>
 		<UseWindowsForms>true</UseWindowsForms>
 		<RootNamespace>System.Windows</RootNamespace>
@@ -9,15 +9,12 @@
 		<Version>$(Revision)-preview</Version>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Markup\LangMarkupExtension.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Include="iExt" Version="2023.306.1730-preview" />
-	  <PackageReference Include="iExt.ObjectModel" Version="2022.1022.1736-preview" />
+	  <PackageReference Include="iExt.ObjectModel" Version="2023.1213.1719-preview" />
 	</ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ namespace System.Windows.Threading
     /// <inheritdoc />
     public class DispatcherAsyncResult : IAsyncResult
     {
-        private readonly IAsyncResult result;
+        private readonly IAsyncResult _result;
 
         /// <summary>
         /// 
@@ -13,16 +13,16 @@ namespace System.Windows.Threading
         public DispatcherOperation Operation { get; }
 
         /// <inheritdoc />
-        public bool IsCompleted => result.IsCompleted;
+        public bool IsCompleted => _result.IsCompleted;
 
         /// <inheritdoc />
-        public WaitHandle AsyncWaitHandle => result.AsyncWaitHandle;
+        public WaitHandle AsyncWaitHandle => _result.AsyncWaitHandle;
 
         /// <inheritdoc />
-        public object AsyncState => result.AsyncState;
+        public object AsyncState => _result.AsyncState;
 
         /// <inheritdoc />
-        public bool CompletedSynchronously => result.CompletedSynchronously;
+        public bool CompletedSynchronously => _result.CompletedSynchronously;
 
         /// <summary>
         /// 
@@ -31,7 +31,7 @@ namespace System.Windows.Threading
         public DispatcherAsyncResult(DispatcherOperation operation)
         {
             Operation = operation;
-            result = operation.Task;
+            _result = operation.Task;
         }
     }
 }

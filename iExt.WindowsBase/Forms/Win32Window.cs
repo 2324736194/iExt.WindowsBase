@@ -13,10 +13,10 @@ namespace System.Windows.Forms
     /// </summary>
     public class Win32Window : IWin32Window
     {
-        private readonly WindowInteropHelper helper;
+        private readonly WindowInteropHelper _helper;
 
         /// <inheritdoc />
-        public IntPtr Handle => helper.Handle;
+        public IntPtr Handle => _helper.Handle;
         
         /// <summary>
         /// 构造基于 <see cref="DependencyObject"/> 的 <see cref="IWin32Window"/>
@@ -35,7 +35,7 @@ namespace System.Windows.Forms
             {
                 throw new InstanceNotFoundException();
             }
-            helper = new WindowInteropHelper(window);
+            _helper = new WindowInteropHelper(window);
         }
     }
 }

@@ -7,10 +7,10 @@ namespace System.Windows.Threading
     /// </summary>
     public class DispatcherSynchronizeInvoke : ISynchronizeInvoke
     {
-        private readonly Dispatcher dispatcher;
+        private readonly Dispatcher _dispatcher;
 
         /// <inheritdoc />
-        public bool InvokeRequired => !dispatcher.CheckAccess();
+        public bool InvokeRequired => !_dispatcher.CheckAccess();
 
         /// <summary>
         /// 
@@ -18,14 +18,14 @@ namespace System.Windows.Threading
         /// <param name="dispatcher"></param>
         public DispatcherSynchronizeInvoke(Dispatcher dispatcher)
         {
-            this.dispatcher = dispatcher;
+            this._dispatcher = dispatcher;
         }
 
         /// <inheritdoc />
         public IAsyncResult BeginInvoke(Delegate method, object[] args)
         {
             return new DispatcherAsyncResult(
-                dispatcher.BeginInvoke(method, DispatcherPriority.Normal, args));
+                _dispatcher.BeginInvoke(method, DispatcherPriority.Normal, args));
         }
 
         /// <inheritdoc />
@@ -39,7 +39,7 @@ namespace System.Windows.Threading
         /// <inheritdoc />
         public object Invoke(Delegate method, object[] args)
         {
-            return dispatcher.Invoke(method, DispatcherPriority.Normal, args);
+            return _dispatcher.Invoke(method, DispatcherPriority.Normal, args);
         }
     }
 }

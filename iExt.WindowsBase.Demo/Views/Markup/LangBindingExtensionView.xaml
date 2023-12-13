@@ -1,0 +1,34 @@
+﻿<UserControl 
+    x:Class="iExt.WindowsBase.Demo.Views.Markup.LangBindingExtensionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="https://github.com/2324736194/"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="LegendLabel" TargetType="{x:Type Label}">
+            <Setter Property="Width" Value="65"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <TextBlock Text="英雄联盟语录" FontSize="16" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center" Margin="0,5"/>
+        </Grid>
+        <DockPanel>
+            <Label Content="英雄选择：" Style="{StaticResource LegendLabel}"/>
+            <ComboBox 
+                SelectedValue="{Binding Path=LangKey}"
+                ItemsSource="{Binding Path=LangKeys}"></ComboBox>
+        </DockPanel>
+        <DockPanel>
+            <Label Content="英雄名称：" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{LangBinding LangSource={x:Type i:Legends},Path=LangKey}" />
+        </DockPanel>
+        <DockPanel>
+            <Label Content="英雄语录：" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{LangBinding LangSource={x:Type i:LegendAnas},Path=LangKey}" />
+        </DockPanel>
+    </StackPanel>
+</UserControl>

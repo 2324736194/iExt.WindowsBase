@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Events;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -12,9 +14,9 @@ namespace System.Windows.Markup
     /// </summary>
     public class LangProvider : IRaisePropertyChanged
     {
-        private static readonly Dictionary<Type, LangProvider> providers;
-        private PropertyChangedEventHandler propertyChanged;
-        private readonly ResourceManager manager;
+        private static readonly Dictionary<Type, LangProvider> _providers;
+        private readonly IWeakEventRelay _relayPropertyChanged;
+        private readonly ResourceManager _manager;
 
         /// <summary>
         /// 设置时区
@@ -25,10 +27,10 @@ namespace System.Windows.Markup
             set
             {
                 CultureInfo.CurrentCulture = value;
-                foreach (var provider in providers)
+                foreach (var provider in _providers)
                 {
                     // ReSharper disable once ExplicitCallerInfoArgument
-                    provider.Value.RaisePropertyChanged(ComponentModelExt.NPN_This);
+                    provider.Value.RaisePropertyChanged(ObjectModelExt.NPN_This);
                 }
             }
         }
@@ -37,18 +39,19 @@ namespace System.Windows.Markup
         /// 获取语言包中对应名称的文本
         /// </summary>
         /// <param name="key"></param>
-        public string this[string key] => manager.GetString(key, Culture);
+        public string this[string key] => _manager.GetString(key, Culture);
 
         static LangProvider()
         {
-            providers = new Dictionary<Type, LangProvider>();
+            _providers = new Dictionary<Type, LangProvider>();
         }
 
         private LangProvider(Type lang)
         {
-            manager = GetManager(lang);
+            _manager = GetManager(lang);
+            _relayPropertyChanged = this.GetRelayPropertyChanged();
         }
-
+        
         private ResourceManager GetManager(Type lang)
         {
             var property = lang.GetProperty("ResourceManager", BindingFlags.Static | BindingFlags.Public);
@@ -67,21 +70,26 @@ namespace System.Windows.Markup
         
         event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
         {
-            add { propertyChanged += value; }
-            remove { propertyChanged -= value; }
+            add => _relayPropertyChanged.Add(value);
+            remove => _relayPropertyChanged.Remove(value);
         }
 
         void IRaisePropertyChanged.RaisePropertyChanged(PropertyChangedEventArgs e)
         {
-            propertyChanged?.Invoke(this, e);
+            _relayPropertyChanged.Raise(this, e);
         }
 
+        /// <summary>
+        /// 注册语言代理
+        /// </summary>
+        /// <param name="lang"></param>
+        /// <returns></returns>
         public static LangProvider Register(Type lang)
         {
-            if (!providers.TryGetValue(lang, out var provider))
+            if (!_providers.TryGetValue(lang, out var provider))
             {
                 provider = new LangProvider(lang);
-                providers.Add(lang, provider);
+                _providers.Add(lang, provider);
             }
 
             return provider;

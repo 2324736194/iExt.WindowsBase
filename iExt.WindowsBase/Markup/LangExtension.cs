@@ -15,7 +15,7 @@ namespace System.Windows.Markup
     /// </summary>
     public class LangExtension : MarkupExtension
     {
-        private LangProvider provider;
+        private LangProvider _provider;
 
         /// <summary>
         /// 表示指向语言包文本的 <see cref="StaticExtension"/>
@@ -27,12 +27,12 @@ namespace System.Windows.Markup
         {
             if (null != Key)
             {
-                if (null == provider)
+                if (null == _provider)
                 {
-                    provider = LangProvider.Register(Key.MemberType);
+                    _provider = LangProvider.Register(Key.MemberType);
                 }
                 var binding = new Binding();
-                binding.Source = provider;
+                binding.Source = _provider;
                 binding.Path = new PropertyPath($"[{Key.Member}]");
                 return binding.ProvideValue(serviceProvider);
             }
