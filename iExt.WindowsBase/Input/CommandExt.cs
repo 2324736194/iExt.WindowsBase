@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Events;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,10 +16,16 @@ namespace System.Windows.Input
         /// <summary>
         /// 触发 <see cref="ICommand.CanExecuteChanged"/> 事件
         /// </summary>
-        /// <param name="interface"></param>
-        public static void RaiseCanExecuteChanged(this IRaiseCanExecuteChanged @interface)
+        /// <param name="source"></param>
+        public static void RaiseCanExecuteChanged(this ICommand source)
         {
-            @interface.RaiseCanExecuteChanged();
+            if (source is IRaiseCanExecuteChanged raise)
+            {
+                raise.RaiseCanExecuteChanged();
+                return;
+            }
+
+            throw new NotImplementedException($"当前命令未继承接口 {nameof(IRaiseCanExecuteChanged)}");
         }
 
         /// <summary>
@@ -37,12 +44,17 @@ namespace System.Windows.Input
 
         internal static T GetCommandParameter<T>(this ICommand source, object parameter)
         {
-            if (!(parameter is T commandParameter))
+            var genericTypeInfo = typeof(T).GetTypeInfo();
+            
+            if (genericTypeInfo.IsValueType)
             {
-                throw new Exception("当前命令参数类型无法转换成泛型类型");
+                if ((!genericTypeInfo.IsGenericType) || (!typeof(Nullable<>).GetTypeInfo().IsAssignableFrom(genericTypeInfo.GetGenericTypeDefinition().GetTypeInfo())))
+                {
+                    throw new Exception("当前命令参数类型无法转换成泛型类型");
+                }
             }
-
-            return commandParameter;
+            
+            return (T)parameter;
         }
     }
 }

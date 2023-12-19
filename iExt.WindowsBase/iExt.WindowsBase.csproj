@@ -5,16 +5,19 @@
 		<UseWPF>true</UseWPF>
 		<UseWindowsForms>true</UseWindowsForms>
 		<RootNamespace>System.Windows</RootNamespace>
-		<Revision>$([System.DateTime]::Now.ToString("yyyy.MMdd.HHmm"))</Revision>
-		<Version>$(Revision)-preview</Version>
-		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Revision>$([System.DateTime]::Now.ToString("yyyy.MMdd.HHmm"))</Revision>
+    <Version>$(Revision)-preview</Version>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
+  </PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="iExt" Version="2023.1213.1831-preview" />
 	  <PackageReference Include="iExt.ObjectModel" Version="2023.1213.1719-preview" />
+	  <PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
 	</ItemGroup>
 
 </Project>

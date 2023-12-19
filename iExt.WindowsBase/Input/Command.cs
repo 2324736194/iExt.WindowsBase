@@ -1,4 +1,5 @@
 ﻿using System.Events;
+using System.Reflection;
 
 namespace System.Windows.Input
 {
@@ -22,6 +23,7 @@ namespace System.Windows.Input
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
+            var es = GetType().GetEvents(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
             _relayCanExecuteChanged = this.GetRelayCanExecuteChanged();
         }
     }
