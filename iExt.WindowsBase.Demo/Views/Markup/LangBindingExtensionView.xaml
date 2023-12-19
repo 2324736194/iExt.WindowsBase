@@ -24,11 +24,11 @@
         </DockPanel>
         <DockPanel>
             <Label Content="英雄名称：" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{LangBinding LangSource={x:Type i:Legends},Path=LangKey}" />
+            <Label Content="{i:LangBinding LangSource={x:Type i:Legends},Path=LangKey}" />
         </DockPanel>
         <DockPanel>
             <Label Content="英雄语录：" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{LangBinding LangSource={x:Type i:LegendAnas},Path=LangKey}" />
+            <Label Content="{i:LangBinding LangSource={x:Type i:LegendAnas},Path=LangKey}" />
         </DockPanel>
     </StackPanel>
 </UserControl>

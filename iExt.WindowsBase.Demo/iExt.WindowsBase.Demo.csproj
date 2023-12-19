@@ -8,7 +8,8 @@
     <RootNamespace>iExt.WindowsBase.Demo</RootNamespace>
   </PropertyGroup>
 	<ItemGroup>
-    <PackageReference Include="iExt.Windows.Tests" Version="2023.1213.1053-preview" />
+    <PackageReference Include="iExt.Prism" Version="2023.1214.1106-preview" />
+    <PackageReference Include="iExt.Windows.Tests" Version="2023.1213.1811-preview" />
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>

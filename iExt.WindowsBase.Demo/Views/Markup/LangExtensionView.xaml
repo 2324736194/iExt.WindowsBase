@@ -20,44 +20,44 @@
                Click="LangChanged_OnClick"/>
         </Grid>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Ezreal}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Ezreal}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Ezreal}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Jhin}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Jhin}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Jhin}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Jhin}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Kassadin}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Kassadin}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Kassadin}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Kassadin}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Malphit}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Malphit}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Malphit}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Malphit}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Pyke}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Pyke}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Pyke}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Pyke}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Set}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Set}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Set}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Set}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Thres}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Thres}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Thres}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Thres}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Wukong}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Wukong}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Wukong}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Wukong}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Yasuo}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Yasuo}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Yasuo}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Yasuo}}"/>
         </DockPanel>
         <DockPanel>
-            <Label Content="{Lang Key={x:Static i:Legends.Zed}}" Style="{StaticResource LegendLabel}"/>
-            <Label Content="{Lang Key={x:Static i:LegendAnas.Zed}}"/>
+            <Label Content="{i:Lang Key={x:Static i:Legends.Zed}}" Style="{StaticResource LegendLabel}"/>
+            <Label Content="{i:Lang Key={x:Static i:LegendAnas.Zed}}"/>
         </DockPanel>
     </StackPanel>
 </UserControl>

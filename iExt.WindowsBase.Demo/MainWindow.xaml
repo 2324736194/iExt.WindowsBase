@@ -6,6 +6,6 @@
     xmlns:i="https://github.com/2324736194/"
     prism:ViewModelLocator.AutoWireViewModel="True"
     WindowStartupLocation="CenterScreen"
-    Height="600" Width="800" >
+    Height="768" Width="1024" >
     <i:MainView/>
 </Window>
