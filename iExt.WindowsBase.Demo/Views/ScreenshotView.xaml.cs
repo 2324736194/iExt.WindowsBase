@@ -34,7 +34,6 @@ namespace iExt.WindowsBase.Demo.Views
             switch (result)
             {
                 case true:
-                    Debug.WriteLine(nameof(Handler));
                     var source = element.Screenshot();
                     var image = new Image();
                     image.Width = element.ActualWidth;
@@ -55,7 +54,7 @@ namespace iExt.WindowsBase.Demo.Views
                     w.MouseDown += ClickCloseHandler;
                     w.ShowDialog();
                     return ForeachFlag.Break;
-                case false:
+               default:
                     return ForeachFlag.Normal;
             }
         }
