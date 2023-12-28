@@ -32,14 +32,13 @@ namespace System.Windows.Input
         /// 获取隐式事件 <see cref="ICommand.CanExecuteChanged"/> 对应的弱事件
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="register"></param>
         /// <returns></returns>
-        public static IWeakEventRelay GetRelayCanExecuteChanged(this ICommand source, RegisterEvent<ICommand> register = null)
+        public static IWeakEventRelay GetRelayCanExecuteChanged(this ICommand source)
         {
             var interfaceName = typeof(ICommand).FullName;
             var eventName = nameof(ICommand.CanExecuteChanged);
             var name = $"{interfaceName}.{eventName}";
-            return source.RegisterWeakEvent(name, register);
+            return source.RegisterWeakEvent(name);
         }
 
         internal static T GetCommandParameter<T>(this ICommand source, object parameter)

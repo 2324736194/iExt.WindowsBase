@@ -126,7 +126,8 @@ namespace System.Windows.Markup
                         if (provide.TargetProperty is DependencyProperty targetProperty)
                         {
                             var eventName = nameof(FrameworkElement.DataContextChanged);
-                            var relay= element.RegisterWeakEvent(eventName, RaiseDataContextChanged);
+                            var relay= element.RegisterWeakEvent(eventName);
+                            relay.RegisterRaise(new DependencyPropertyChangedEventHandlerRegister());
                             relay.Add(new DependencyPropertyChangedEventHandler(OnDataContextChanged));
                             Set_targetProperty(element, targetProperty);
                             Set_langMarkup(element, this);

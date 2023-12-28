@@ -15,7 +15,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="iExt.ObjectModel" Version="2023.1227.1550-preview" />
+	  <PackageReference Include="iExt.ObjectModel" Version="2023.1228.1606-preview" />
 	  <PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
 	</ItemGroup>
 

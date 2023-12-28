@@ -40,7 +40,8 @@ namespace iExt.WindowsBase.Demo.Views
                     image.Height = element.ActualHeight;
                     image.Source = source;
                     var main = Application.Current.MainWindow;
-                    var relay = main.RegisterWeakEvent(nameof(Window.Activated), RegisterActivated);
+                    var relay = main.RegisterWeakEvent(nameof(Window.Activated));
+                    relay.RegisterRaise(new EventHandlerRegister());
                     var handler = new EventHandler(DisplayerActivatedHandler);
                     relay.Add(handler);
                     var w = new Window();
@@ -58,15 +59,7 @@ namespace iExt.WindowsBase.Demo.Views
                     return ForeachFlag.Normal;
             }
         }
-
-        private void RegisterActivated(Window owner, IWeakEventRelay relay)
-        {
-            owner.Activated += (sender, e) =>
-            {
-                relay.Raise(sender, e);
-            };
-        }
-
+        
         private void DisplayerActivatedHandler(object sender, EventArgs e)
         {
             Debug.WriteLine(nameof(DisplayerActivatedHandler));
