@@ -15,8 +15,17 @@
   </PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="LogicalTreeExt.cs" />
+	  <Compile Remove="Media\VisualTreeExt.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="iExt.ObjectModel" Version="2023.1228.1606-preview" />
 	  <PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Media\" />
 	</ItemGroup>
 
 </Project>
