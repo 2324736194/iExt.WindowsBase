@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace iExt.WindowsBase.Demo
+namespace iExt.WindowsBase.Demo.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

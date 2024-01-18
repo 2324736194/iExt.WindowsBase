@@ -6,7 +6,7 @@ using Prism.Mvvm;
 
 namespace iExt.WindowsBase.Demo.ViewModels
 {
-    public class LogicalTreeExtViewModel: BindableBase
+    internal class LogicalTreeExtViewModel: BindableBase
     {
         public ICommand LoadedCommand { get; }
 
