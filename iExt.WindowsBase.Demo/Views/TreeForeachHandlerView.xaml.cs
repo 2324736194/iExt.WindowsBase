@@ -3,11 +3,11 @@
 namespace iExt.WindowsBase.Demo.Views
 {
     /// <summary>
-    /// LogicalTreeExtView.xaml 的交互逻辑
+    /// TreeForeachHandlerView.xaml 的交互逻辑
     /// </summary>
-    public partial class LogicalTreeExtView : UserControl
+    public partial class TreeForeachHandlerView : UserControl
     {
-        public LogicalTreeExtView()
+        public TreeForeachHandlerView()
         {
             InitializeComponent();
         }

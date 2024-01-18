@@ -1,8 +1,10 @@
 using System.Windows;
 using System.Windows.Markup;
 
-[assembly: XmlnsPrefix(Namespaces.iExt, Namespaces.iExtPrefix)]
-[assembly: XmlnsDefinition(Namespaces.iExt, "System.Windows.Markup")]
+[assembly: XmlnsDefinition(Namespaces.Presentation, "System.Windows")]
+[assembly: XmlnsDefinition(Namespaces.Presentation, "System.Windows.Forms")]
+[assembly: XmlnsDefinition(Namespaces.Presentation, "System.Windows.Input")]
+[assembly: XmlnsDefinition(Namespaces.Presentation, "System.Windows.Markup")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located

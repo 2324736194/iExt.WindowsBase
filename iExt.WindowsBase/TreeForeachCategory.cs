@@ -1,9 +1,9 @@
 ﻿namespace System.Windows
 {
     /// <summary>
-    /// 元素树类别
+    /// 树遍历类别
     /// </summary>
-    public enum TreeCategories
+    public enum TreeForeachCategory
     {
         /// <summary>
         /// 逻辑树
