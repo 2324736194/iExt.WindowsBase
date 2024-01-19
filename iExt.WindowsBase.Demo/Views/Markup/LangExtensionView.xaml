@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="https://github.com/2324736194/"
     mc:Ignorable="d" 
-    d:DesignHeight="450" d:DesignWidth="800">
+    Style="{StaticResource UserControl.Demo}">
     <UserControl.Resources>
         <Style x:Key="LegendLabel" TargetType="{x:Type Label}">
             <Setter Property="Width" Value="100"></Setter>

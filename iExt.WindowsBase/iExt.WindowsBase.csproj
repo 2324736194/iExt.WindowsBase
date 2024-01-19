@@ -5,27 +5,27 @@
 		<UseWPF>true</UseWPF>
 		<UseWindowsForms>true</UseWindowsForms>
 		<RootNamespace>System.Windows</RootNamespace>
-    <Revision>$([System.DateTime]::Now.ToString("yyyy.MMdd.HHmm"))</Revision>
-    <Version>$(Revision)-preview</Version>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageOutputPath>$(USERPROFILE)\.nuget\packages_H</PackageOutputPath>
-  </PropertyGroup>
+		<Revision>$([System.DateTime]::Now.ToString("yyyy.MMdd.HHmm"))</Revision>
+		<Version>$(Revision)-preview</Version>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageOutputPath>$(USERPROFILE)\.nuget\packages_H</PackageOutputPath>
+	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="LogicalTreeExt.cs" />
-	  <Compile Remove="Media\VisualTreeExt.cs" />
+		<Compile Remove="LogicalTreeExt.cs" />
+		<Compile Remove="Media\VisualTreeExt.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="iExt.ObjectModel" Version="2023.1228.1606-preview" />
-	  <PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
+		<PackageReference Include="iExt.ObjectModel" Version="2023.1228.1606-preview" />
+		<PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Media\" />
+		<Folder Include="Interop\" />
 	</ItemGroup>
 
 </Project>
