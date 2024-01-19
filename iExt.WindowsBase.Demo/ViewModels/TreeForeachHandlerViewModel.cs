@@ -85,6 +85,7 @@ namespace iExt.WindowsBase.Demo.ViewModels
                     break;
             }
             builder.AppendLine();
+
             _tb.AppendText(builder.ToString());
             var handler = new TreeForeachHandler();
             handler.ForeachCategory = ForeachCategory;

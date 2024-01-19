@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="iExt.WindowsBase.Demo.Views.Interop.InteropHandlerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:iExt.WindowsBase.Demo.Views.Interop"
+             mc:Ignorable="d"
+             Style="{StaticResource UserControl.Demo}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Padding"
+                    Value="5"></Setter>
+            <Setter Property="Margin"
+                    Value="5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Stretch" Value="None"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <Border>
+            <ListBox x:Name="ListBox1" SelectedIndex="0">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <Image Source="pack://application:,,,/Resources/Animals/Deer.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Dog.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Elephant.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Horse.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Lion.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Monkey.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Panda.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Pig.png"></Image>
+                <Image Source="pack://application:,,,/Resources/Animals/Sheep.png"></Image>
+            </ListBox>
+        </Border>
+        <Button Content="设置窗口图标"
+                CommandParameter="{Binding ElementName=ListBox1,Path=SelectedItem}"
+                Command="{Binding Path=SetFormIconCommand}"></Button>
+        <Button Content="设置窗口光标"
+                CommandParameter="{Binding ElementName=ListBox1,Path=SelectedItem}"
+                Command="{Binding Path=SetFormCursorCommand}"></Button>
+    </StackPanel>
+</UserControl>

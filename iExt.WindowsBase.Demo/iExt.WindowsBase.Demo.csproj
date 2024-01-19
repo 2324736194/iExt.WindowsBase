@@ -9,13 +9,49 @@
     <Compile Remove="Views\Media\VisualTreeExtView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Resources\Animals\Deer.png" />
+    <None Remove="Resources\Animals\Dog.png" />
+    <None Remove="Resources\Animals\Elephant.png" />
+    <None Remove="Resources\Animals\Horse.png" />
+    <None Remove="Resources\Animals\Lion.png" />
+    <None Remove="Resources\Animals\Monkey.png" />
+    <None Remove="Resources\Animals\Pig.png" />
+    <None Remove="Resources\Animals\Sheep.png" />
     <None Remove="Resources\Demo.jpg" />
+    <None Remove="Resources\Panda.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Remove="Views\Media\VisualTreeExtView.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Animals\Deer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Dog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Elephant.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Horse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Lion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Monkey.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Pig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Sheep.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Demo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Animals\Panda.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -26,5 +62,8 @@
   <ItemGroup>
     <ProjectReference Include="..\iExt.WindowsBase.Demo.Langs\iExt.WindowsBase.Demo.Langs.csproj" />
     <ProjectReference Include="..\iExt.WindowsBase\iExt.WindowsBase.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 </Project>
