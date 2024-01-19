@@ -9,7 +9,15 @@
     <Compile Remove="Views\Media\VisualTreeExtView.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Resources\Demo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Page Remove="Views\Media\VisualTreeExtView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Demo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 	<ItemGroup>
     <PackageReference Include="iExt.Windows.Tests" Version="2024.115.1050-preview" />
@@ -18,9 +26,5 @@
   <ItemGroup>
     <ProjectReference Include="..\iExt.WindowsBase.Demo.Langs\iExt.WindowsBase.Demo.Langs.csproj" />
     <ProjectReference Include="..\iExt.WindowsBase\iExt.WindowsBase.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Media\" />
-    <Folder Include="Views\Media\" />
   </ItemGroup>
 </Project>
