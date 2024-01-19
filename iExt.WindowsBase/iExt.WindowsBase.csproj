@@ -21,11 +21,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="iExt.ObjectModel" Version="2023.1228.1606-preview" />
+		<PackageReference Include="iExt.Runtime.InteropServices" Version="2024.119.1600-preview" />
 		<PackageReference Include="iExt.XmlnsNamespaces" Version="2023.1213.1053-preview" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Interop\" />
 	</ItemGroup>
 
 </Project>
