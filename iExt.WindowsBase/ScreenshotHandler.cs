@@ -12,12 +12,11 @@ namespace System.Windows
         /// 截图
         /// </summary>
         /// <param name="element"></param>
-        /// <param name="dpiScale"></param>
         /// <param name="format"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public ImageSource Handle(FrameworkElement element, DpiScale dpiScale, PixelFormat format)
+        public ImageSource Handle(FrameworkElement element, PixelFormat format)
         {           
             if (null == element)
             {   
@@ -30,6 +29,8 @@ namespace System.Windows
             {
                 throw new ArgumentOutOfRangeException(nameof(element));
             }
+
+            var dpiScale = new DpiScale(element);
             var width = (int)element.ActualWidth;
             var height = (int)element.ActualHeight;
             var source = new RenderTargetBitmap(width, height, dpiScale.PixelsPerInchX, dpiScale.PixelsPerInchY, format);
@@ -44,9 +45,8 @@ namespace System.Windows
         /// <returns></returns>
         public ImageSource Handle(FrameworkElement element)
         {
-            var dpiScale = new DpiScale(element);
             var format = PixelFormats.Default;
-            return Handle(element, dpiScale, format);
+            return Handle(element,  format);
         }
     }
 }
